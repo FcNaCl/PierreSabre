@@ -1,9 +1,9 @@
 package personnages;
 
 public class Humain {
-	private String nom;
-	private String boissonFavorite;
-	private int argent;
+	protected String nom;
+	protected String boissonFavorite;
+	protected int argent;
 	
 	// Constructor
 	
@@ -36,7 +36,7 @@ public class Humain {
 	// méthodes spécifiques
 	
 	public void direBonjour() {
-		parler("Bonjour ! Je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite);
+		parler("Bonjour ! Je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite + ".");
 	}
 	
 	public void boire(String boisson) {
@@ -62,7 +62,7 @@ public class Humain {
 		this.setArgent(this.getArgent()+argent);
 	}
 	
-	private void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println("(this.nom) - " + texte);
 	}
 }
