@@ -9,9 +9,11 @@ public class Commerçant extends Humain {
 
 	// Méthodes spécifiques
 	
-	public void seFaireExtorquer() {
+	public int seFaireExtorquer() {
+		int argentExtorquer = this.getArgent();
 		this.setArgent(0);
 		this.parler("J'ai tout perdu ! Le monde est trop injuste...");
+		return argentExtorquer;
 	}
 	
 	public void recevoirArgent(int argent) {
