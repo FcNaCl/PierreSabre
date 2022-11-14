@@ -1,9 +1,13 @@
 package personnages;
 
 public class Humain {
+	
+	protected static final int NB_HUMAIN = 3;
 	protected String nom;
 	protected String boissonFavorite;
 	protected int argent;
+	protected Humain[] memoire;
+	protected int nbConnaissance = 0;
 	
 	// Constructor
 	
@@ -11,6 +15,7 @@ public class Humain {
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
 		this.argent = argent;
+		this.memoire = new Humain[NB_HUMAIN];
 	}
 	
 	// getters
@@ -25,6 +30,11 @@ public class Humain {
 	
 	public int getArgent() {
 		return argent;
+	}
+	
+	public int getNbConnaissance() {
+		if (this.nbConnaissance > NB_HUMAIN) return NB_HUMAIN;
+		else return nbConnaissance;
 	}
 	
 	// setters
@@ -62,7 +72,32 @@ public class Humain {
 		this.setArgent(this.getArgent()+argent);
 	}
 	
-	protected void parler(String texte) {
-		System.out.println("(this.nom) - " + texte);
+	public void parler(String texte) {
+		System.out.println(this.nom +" - " + texte);
+	}
+	
+	public void repondre(Humain humain) {
+		this.direBonjour();
+		this.memoriser(humain);
+	}
+	
+	public void memoriser(Humain humain) {
+		this.memoire[nbConnaissance%NB_HUMAIN] = humain;
+		this.nbConnaissance += 1;
+	}
+	
+	
+	public void faireConnaissance(Humain autreHumain) {
+		this.direBonjour();
+		autreHumain.repondre(this);
+		this.memoriser(autreHumain);
+	}
+	
+	public void listerConnaissance() {
+		String rep = "";
+		for (int i = 0; i < this.getNbConnaissance(); i++) {
+			rep += memoire[i].getNom()+((i == this.getNbConnaissance()-1)?".": ", ");
+		}
+		this.parler("Je connais beaucoup de monde dont : " + rep);
 	}
 }

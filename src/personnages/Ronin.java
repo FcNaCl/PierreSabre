@@ -1,7 +1,7 @@
 package personnages;
 
 public class Ronin extends Humain {
-	private int réputation = 1;
+	private int honneur = 1;
 	
 	
 	public Ronin(String nom, String boissonFavorite, int argent) {
@@ -21,5 +21,21 @@ public class Ronin extends Humain {
 		}
 	}
 	
+	public void provoquer(Yakuza adversaire) {
+		if (2*this.honneur > adversaire.getRéputation()) {
+			int gain = adversaire.perdre();
+			this.argent += gain;
+			this.honneur += 1;
+			this.parler("Je t'ai eu petit yakuza !");
+			this.parler("J'ai perdu mon duel et mes " + gain + " euros, snif... J'ai déshonoré le clan de " + adversaire.getClan() + ".");
+		} else {
+			int perte = this.argent;
+			this.argent = 0;
+			this.honneur -= 1;
+			adversaire.gagner(perte);
+			this.parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup.");
+			adversaire.parler("Ce ronin pensait vraiment battre " + adversaire.getNom() + " du clan de " + adversaire.getClan() + " ? Je l'ai dépouillé de ses " + perte + " euros.");
+		}
+	}
 	
 }
