@@ -15,8 +15,7 @@ public class Samourai extends Ronin{
 		this.parler("Je suis fier de servir le seigneur " + this.nomSeigneur + ".");
 	}
 	
-	@Override
 	public void boire(String nomBoisson) {
-		this.parler("Qu'est ce que je vais choisir comme boisson ? Tiens je vais prendre du "+ nomBoisson + ".");
+		this.parler("Qu'est-ce que je vais choisir comme boisson ? Tiens je vais prendre du "+ nomBoisson + ".");
 	}
 }

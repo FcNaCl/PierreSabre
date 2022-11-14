@@ -49,8 +49,8 @@ public class Humain {
 		parler("Bonjour ! Je m'appelle " + this.nom + " et j'aime boire du " + this.boissonFavorite + ".");
 	}
 	
-	public void boire(String boisson) {
-		parler("Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
+	public void boire() {
+		parler("Mmmm, un bon verre de " + this.boissonFavorite + " ! GLOUPS !");
 	}
 	
 	public void acheter(String bien, int argent) {
