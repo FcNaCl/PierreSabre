@@ -7,6 +7,7 @@ public class HistoireTP5 {
 		Commerçant chonin =  new Commerçant("Chonin", 40);
 		Commerçant kumi =  new Commerçant("Kumi", 10);
 		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong");
+		Samourai akimoto = new Samourai("Miyamoto","Akimoto", "saké", 80);
 		Ronin roro = new Ronin("Roro", "shochu", 60);
 		System.out.println("Le marchand Marco rencontre le ronin.");
 		marco.faireConnaissance(roro);
@@ -19,6 +20,9 @@ public class HistoireTP5 {
 		marco.listerConnaissance();
 		kumi.listerConnaissance();
 		yaku.listerConnaissance();
+		akimoto.faireConnaissance(marco);
+		akimoto.listerConnaissance();
+		akimoto.boire("thé");
 	}
 	
 }
